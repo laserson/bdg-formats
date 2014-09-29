@@ -629,8 +629,7 @@ record Genotype {
   union { null, int }     phaseQuality = null;
 }
 
-record VariantEffect
-{
+record VariantEffect {
   union { null, string} hgvs = null;
   union { null, string } referenceAminoAcid = null;
   union { null, string } alternateAminoAcid = null;
@@ -683,6 +682,11 @@ enum Strand {
   Independent
 }
 
+record Dbxref {
+  string accession;
+  string db;
+}
+
 record Feature {
   /**
    Preferably unique ID for this Feature object
@@ -730,10 +734,8 @@ record Feature {
   
   /**
    Cross-references into other databases.
-   
-   Key is database name and value is the accession.
    */
-  map<string> dbxrefs = null;
+  array<Dbxref> dbxrefs = null;
   
   /**
    List of parent featureIds, for implementing feature hierachies/graphs.
