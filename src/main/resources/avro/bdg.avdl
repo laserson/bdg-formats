@@ -534,7 +534,7 @@ record Genotype {
    array is equal to the ploidy of the sample at this site. This array may
    reference OtherAlt alleles if this site is multi-allelic in this sample.
    */
-  array <GenotypeAllele> alleles = [];
+  array<GenotypeAllele> alleles = [];
 
   /**
    The expected dosage of the alternate allele in this sample.
@@ -663,7 +663,7 @@ record DatabaseVariantAnnotation {
 
   //effect
   //TODO(arahuja): Parse into array
-  //array<VariantEffect> effects = null;
+  //array<VariantEffect> effects = [];
 
   //predicted effects
   union { null, float } siftScore = null;
@@ -735,19 +735,19 @@ record Feature {
   /**
    Cross-references into other databases.
    */
-  array<Dbxref> dbxrefs = null;
+  array<Dbxref> dbxrefs = [];
   
   /**
    List of parent featureIds, for implementing feature hierachies/graphs.
    */
-  array<string> parentIds = null;
+  array<string> parentIds = [];
   
   /**
    Additional feature info that doesn't fit into the standard fields above.
    
    They are all encoded as (string, string) key-value pairs.
    */
-  map<string> attributes = null;
+  map<string> attributes = {};
 }
 
 }
